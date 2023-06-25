@@ -42,11 +42,8 @@ $ git commit --amend -m "an updated commit message"
 
 ```bash
 # Implementations
-$ nest g app port-services
-$ npm i --save @nestjs/microservices
-$ npm install --save @nestjs/typeorm typeorm pg
-$ npm i kafkajs
-$ npm install dotenv --save
+$ flutter pub add provider
+
 ```
 
 </details><br/>

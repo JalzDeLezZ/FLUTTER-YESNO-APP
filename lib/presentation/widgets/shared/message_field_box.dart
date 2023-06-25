@@ -3,7 +3,10 @@
 import 'package:flutter/material.dart';
 
 class MessageFieldBoxScreen extends StatelessWidget {
-  const MessageFieldBoxScreen({Key? key}) : super(key: key);
+  final ValueChanged<String> onSubmitted;
+
+  const MessageFieldBoxScreen({Key? key, required this.onSubmitted})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +26,8 @@ class MessageFieldBoxScreen extends StatelessWidget {
         icon: const Icon(Icons.send_outlined),
         onPressed: () {
           final textValue = textController.value.text;
-          print('Send message $textValue');
           textController.clear();
+          onSubmitted(textValue);
         },
       ),
     );
@@ -34,9 +37,9 @@ class MessageFieldBoxScreen extends StatelessWidget {
       controller: textController,
       decoration: inputDecoration,
       onFieldSubmitted: (value) {
-        print('Send message $value');
         textController.clear();
         focusNode.requestFocus();
+        onSubmitted(value);
       },
       // onChanged: (value) {
       //   print('Typing message $value');
