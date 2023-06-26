@@ -23,7 +23,10 @@
 
 ## Utils Links
 
+[• QuickType](https://app.quicktype.io/)
+[• Libraries](https://pub.dev/)
 [• Provider](https://pub.dev/packages/provider/install)
+[• dio](https://pub.dev/packages/dio)
 
 
 <br/>
@@ -43,6 +46,7 @@ $ git commit --amend -m "an updated commit message"
 ```bash
 # Implementations
 $ flutter pub add provider
+$ flutter pub add dio
 
 ```
 
