@@ -8,8 +8,6 @@ class ChatProvider extends ChangeNotifier {
 
   List<Message> messageList = [
     Message(text: 'Hello', fromWho: FromWho.me),
-    Message(text: 'Are your return from the job', fromWho: FromWho.me),
-    Message(text: 'Sheeeee', fromWho: FromWho.hers)
   ];
 
   Future<void> sendMessage(String text) async {

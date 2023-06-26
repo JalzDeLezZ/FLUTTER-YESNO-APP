@@ -41,9 +41,9 @@ class _ChatView extends StatelessWidget {
                     itemCount: chatProvider.messageList.length,
                     itemBuilder: (context, index) {
                       final message = chatProvider.messageList[index];
-                      return (message.fromWho == FromWho.me)
-                          ? MyMessageBubbleScreen(message: message)
-                          : const HerMessageBubbleScreen();
+                      return (message.fromWho == FromWho.hers)
+                          ? HerMessageBubbleScreen(message: message)
+                          : MyMessageBubbleScreen(message: message);
                     })),
             MessageFieldBoxScreen(
               // onSubmitted: (text) { chatProvider.sendMessage(text); }, // This is the same as the line below

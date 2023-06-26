@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:yes_no_app/domain/entities/message.dart';
 
 class HerMessageBubbleScreen extends StatelessWidget {
-  const HerMessageBubbleScreen({Key? key}) : super(key: key);
+  final Message message;
+  const HerMessageBubbleScreen({super.key, required this.message});
 
   @override
   Widget build(BuildContext context) {
@@ -15,16 +17,16 @@ class HerMessageBubbleScreen extends StatelessWidget {
             color: colors.secondary,
             borderRadius: BorderRadius.circular(12),
           ),
-          child: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Text(
-              'Hello world',
-              style: TextStyle(color: Colors.white),
+              message.text,
+              style: const TextStyle(color: Colors.white),
             ),
           ),
         ),
         const SizedBox(height: 5),
-        _ImageBubble(),
+        _ImageBubble(message.imageUrl!),
         const SizedBox(height: 10),
       ],
     );
@@ -32,6 +34,9 @@ class HerMessageBubbleScreen extends StatelessWidget {
 }
 
 class _ImageBubble extends StatelessWidget {
+  final String imageUrl;
+  const _ImageBubble(this.imageUrl);
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -39,7 +44,7 @@ class _ImageBubble extends StatelessWidget {
     return ClipRRect(
         borderRadius: BorderRadius.circular(12),
         child: Image.network(
-          'https://yesno.wtf/assets/screenrecording-a3c84026f1d0d1a104d67d2a7aabcea8.gif',
+          imageUrl,
           width: size.width * 0.6,
           height: 150,
           fit: BoxFit.cover,
